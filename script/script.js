@@ -1,5 +1,5 @@
 //Coding Challenge 1
-
+/*
 var massJohn = 56;
 var massMark = 58;
 
@@ -11,4 +11,6 @@ var markBMI = massMark / heightMark ** 2;
 
 var higherBMI = johnBMI < markBMI;
 
-console.log(`Is Mark's BMI heigher than John?? ${higherBMI}`);
+console.log(`Is Mark's BMI higher than John?? ${higherBMI}`);
+*/
+
