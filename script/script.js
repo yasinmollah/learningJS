@@ -13,7 +13,7 @@ var higherBMI = johnBMI < markBMI;
 
 console.log(`Is Mark's BMI higher than John?? ${higherBMI}`);
 */
-
+/*
 //Coding Challenge 2
 
 //john's Score
@@ -66,3 +66,4 @@ johnAvgScore > mikeAvgScore
     : console.log(`Mary is the winner with the average score ${maryAvgScore}`);
 
 //Step 5 has tested several times
+*/
