@@ -67,3 +67,33 @@ johnAvgScore > mikeAvgScore
 
 //Step 5 has tested several times
 */
+
+//Coding challenge 3
+
+//Tip Calculator Function
+function tipCalculator(amount) {
+    if (amount < 50) {
+        return amount * 0.2;
+    } else if (amount >= 50 && amount <= 200) {
+        return amount * 0.15;
+    } else {
+        return amount * 0.1;
+    }
+}
+
+// Array of Bills
+var bills = [124, 48, 268];
+
+// Calculated Array of tips
+var tips = [
+    tipCalculator(bills[0]),
+    tipCalculator(bills[1]),
+    tipCalculator(bills[2]),
+];
+
+console.log(tips);
+
+//Array of total bills
+var totalBills = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+console.log(totalBills);
