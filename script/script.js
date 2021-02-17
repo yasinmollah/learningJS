@@ -99,3 +99,31 @@ var totalBills = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(totalBills);
 */
 
+//Coding challenge 4
+
+//Creating Mark's Object
+var mark = {
+    fullName: "Mark Smith",
+    mass: 60,
+    height: 1.65,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+    },
+};
+mark.calcBMI();
+
+// Creating John's Object 
+var john = {
+    fullName: "John Smith",
+    mass: 58,
+    height: 1.65,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+    },
+};
+john.calcBMI();
+
+// Deciding who holds the highest BMI
+john.bmi > mark.bmi
+    ? console.log(`${john.fullName}'s BMI is highest & his BMI is ${john.bmi}`)
+    : console.log(`${mark.fullName}'s BMI is highest & his BMI is ${mark.bmi}`);
