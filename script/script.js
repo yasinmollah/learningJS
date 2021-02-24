@@ -158,3 +158,30 @@ var john = {
 
 john.dataAssign();
 console.log(john);
+
+var mark = {
+    bill: [77, 375, 110, 45],
+    tips: [],
+    billWithTips: [],
+    tipCalculator: function (amount) {
+        if (amount < 100) {
+            return amount * 0.2;
+        } else if (amount >= 100 && amount < 300) {
+            return amount * 0.1;
+        } else {
+            return amount * 0.25;
+        }
+    },
+    dataAssign: function () {
+        for (var i = 0; i < this.bill.length; i++) {
+            var calcdTips = this.tipCalculator(this.bill[i]);
+
+            this.tips.push(calcdTips);
+            this.billWithTips.push(this.bill[i] + calcdTips);
+        }
+    },
+};
+
+mark.dataAssign();
+
+console.log(mark);
