@@ -99,6 +99,7 @@ var totalBills = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(totalBills);
 */
 
+/*
 //Coding challenge 4
 
 //Creating Mark's Object
@@ -127,3 +128,6 @@ john.calcBMI();
 john.bmi > mark.bmi
     ? console.log(`${john.fullName}'s BMI is highest & his BMI is ${john.bmi}`)
     : console.log(`${mark.fullName}'s BMI is highest & his BMI is ${mark.bmi}`);
+*/
+
+// console.log(`Challenge 5 Starts from here`);
