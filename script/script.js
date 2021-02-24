@@ -131,3 +131,30 @@ john.bmi > mark.bmi
 */
 
 // console.log(`Challenge 5 Starts from here`);
+
+// creating object fir JOHN
+var john = {
+    bill: [124, 48, 268, 180, 42],
+    tips: [],
+    billWithTips: [],
+    tipCalculator: function (amount) {
+        if (amount < 50) {
+            return amount * 0.2;
+        } else if (amount >= 50 && amount < 200) {
+            return amount * 0.15;
+        } else {
+            return amount * 0.1;
+        }
+    },
+    dataAssign: function () {
+        for (var i = 0; i < this.bill.length; i++) {
+            var calcdTips = this.tipCalculator(this.bill[i]);
+
+            this.tips.push(calcdTips);
+            this.billWithTips.push(this.bill[i] + calcdTips);
+        }
+    },
+};
+
+john.dataAssign();
+console.log(john);
