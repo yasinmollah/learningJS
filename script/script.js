@@ -185,3 +185,16 @@ var mark = {
 mark.dataAssign();
 
 console.log(mark);
+
+function avgTips(amount) {
+    var sumTip = 0;
+    for (var i; i < amount.length; i++) {
+        sumTip += amount[i];
+    }
+
+    return sumTip / amount.length;
+}
+
+avgTips(john.tips) > avgTips(mark.tips)
+    ? console.log(`John pay more tips`)
+    : console.log(`mark pay more tips`);
