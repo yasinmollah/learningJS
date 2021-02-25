@@ -198,3 +198,6 @@ function avgTips(amount) {
 avgTips(john.tips) > avgTips(mark.tips)
     ? console.log(`John pay more tips`)
     : console.log(`mark pay more tips`);
+
+
+    
