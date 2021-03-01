@@ -78,7 +78,7 @@ body {
     right: 10px;
 }
 
-.player-score-box{
+.player-score-box {
     background-color: #eb4d4d;
     color: #fff;
     width: 40%;
@@ -139,7 +139,7 @@ i {
 .btn-new {
     top: 45px;
 }
-.bbtn-roll {
+.btn-roll {
     top: 403px;
 }
 .btn-hold {
