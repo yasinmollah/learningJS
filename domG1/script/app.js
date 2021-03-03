@@ -1,68 +1,82 @@
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, gamePlay;
 
-scores = [0, 0];
-roundScore = 0;
-activePlayer = 1;
-
-// document.querySelector("#current-" + activePlayer).textContent = dice;
-
-document.querySelector(".dice").style.display = "none";
-
-document.getElementById("score-1").textContent = "0";
-document.getElementById("score-2").textContent = "0";
-document.getElementById("current-1").textContent = "0";
-document.getElementById("current-2").textContent = "0";
+init();
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
-    // 1.Select random number
-    var dice = Math.floor(Math.random() * 6) + 1;
-    //2.Display the Result
-    var diceDom = document.querySelector(".dice");
-    diceDom.style.display = "block";
-    diceDom.src = "../images/dice-" + dice + ".png";
-    //3.update the round score if the rolled number is not 1
-    if (dice !== 1) {
-        // Add Score
-        roundScore += dice;
-        // Display the score in the current score box
-        document.getElementById(
-            "current-" + activePlayer
-        ).textContent = roundScore;
-    } else {
-        // Switch to the next player
-        nextPlayer();
+    if (gamePlay) {
+        // 1.Select random number
+        var dice = Math.floor(Math.random() * 6) + 1;
+        //2.Display the Result
+        var diceDom = document.querySelector(".dice");
+        diceDom.style.display = "block";
+        diceDom.src = "../images/dice-" + dice + ".png";
+        //3.update the round score if the rolled number is not 1
+        if (dice !== 1) {
+            // Add Score
+            roundScore += dice;
+            // Display the score in the current score box
+            document.getElementById(
+                "current-" + activePlayer
+            ).textContent = roundScore;
+        } else {
+            // Switch to the next player
+            nextPlayer();
+        }
     }
 });
 
 // Creating the activities of Hold button
 document.querySelector(".btn-hold").addEventListener("click", function () {
-    //Add current score to global score
-    scores[activePlayer - 1] += roundScore;
-    //Update the UI
-    document.getElementById("score-" + activePlayer).textContent =
-        scores[activePlayer - 1];
-
-    //Check If player won the game
-    if (scores[activePlayer - 1] >= 20) {
-        //Change player name to WINNER
-        document.getElementById("name-" + activePlayer).textContent =
-            "Winner!!";
-        //Disappear the dice
-        document.querySelector(".dice").style.display = "none";
-        //Move the winner player to the winner class
-        document
-            .querySelector(`.player-${activePlayer}-pannel`)
-            .classList.add("winner");
-        // Remove active class from the winner player
-        document
-            .querySelector(`.player-${activePlayer}-pannel`)
-            .classList.remove("active");
-    } else {
-        // Switch to the next player
-        nextPlayer();
+    if (gamePlay) {
+        //Add current score to global score
+        scores[activePlayer - 1] += roundScore;
+        //Update the UI
+        document.getElementById("score-" + activePlayer).textContent =
+            scores[activePlayer - 1];
+        //Check If player won the game
+        if (scores[activePlayer - 1] >= 20) {
+            //Change player name to WINNER
+            document.getElementById("name-" + activePlayer).textContent =
+                "Winner!!";
+            //Disappear the dice
+            document.querySelector(".dice").style.display = "none";
+            //Move the winner player to the winner class
+            document
+                .querySelector(`.player-${activePlayer}-pannel`)
+                .classList.add("winner");
+            // Remove active class from the winner player
+            document
+                .querySelector(`.player-${activePlayer}-pannel`)
+                .classList.remove("active");
+            gamePlay = false;
+        } else {
+            // Switch to the next player
+            nextPlayer();
+        }
     }
 });
 
+document.querySelector(".btn-new").addEventListener("click", init);
+
+function init() {
+    scores = [0, 0];
+    roundScore = 0;
+    activePlayer = 1;
+    gamePlay = true;
+    document.querySelector(".dice").style.display = "none";
+
+    document.getElementById("score-1").textContent = "0";
+    document.getElementById("score-2").textContent = "0";
+    document.getElementById("current-1").textContent = "0";
+    document.getElementById("current-2").textContent = "0";
+    document.getElementById("name-1").textContent = "Player 1";
+    document.getElementById("name-2").textContent = "Player 2";
+    document.querySelector(".player-1-pannel").classList.remove("winner");
+    document.querySelector(".player-2-pannel").classList.remove("winner");
+    document.querySelector(".player-1-pannel").classList.remove("active");
+    document.querySelector(".player-2-pannel").classList.remove("active");
+    document.querySelector(".player-1-pannel").classList.add("active");
+}
 
 //Creating Next PLayer function for applying DRY principals
 function nextPlayer() {
