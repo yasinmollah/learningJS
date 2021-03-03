@@ -21,4 +21,28 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     diceDom.style.display = "block";
     diceDom.src = "../images/dice-" + dice + ".png";
     //3.update the round score if the rolled number is not 1
+    if (dice !== 1) {
+        // Add Score
+        roundScore += dice;
+        // Display the score in the current score box
+        document.getElementById(
+            "current-" + activePlayer
+        ).textContent = roundScore;
+    } else {
+        // switch to the next player
+        activePlayer === 1 ? (activePlayer = 2) : (activePlayer = 1);
+        // Resetting the current score
+        roundScore = 0;
+
+        // Resetting the current score box
+        document.querySelector("#current-1").textContent = 0;
+        document.querySelector("#current-2").textContent = 0;
+
+        // Toggling Active Player 
+        document.querySelector(".player-1-pannel").classList.toggle("active");
+        document.querySelector(".player-2-pannel").classList.toggle("active");
+
+        // Disappear the dice when the dice value is 1
+        document.querySelector(".dice").style.display = "none";
+    }
 });
