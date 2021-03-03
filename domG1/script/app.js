@@ -63,6 +63,8 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
     }
 });
 
+
+//Creating Next PLayer function for applying DRY principals
 function nextPlayer() {
     // switch to the next player
     activePlayer === 1 ? (activePlayer = 2) : (activePlayer = 1);
