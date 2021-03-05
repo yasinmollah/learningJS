@@ -1,4 +1,4 @@
-var scores, roundScore, activePlayer, gamePlay;
+var scores, roundScore, activePlayer, gamePlay, dualSix;
 
 init();
 
@@ -63,6 +63,7 @@ function init() {
     roundScore = 0;
     activePlayer = 1;
     gamePlay = true;
+    dualSix = [];
     document.querySelector(".dice").style.display = "none";
 
     document.getElementById("score-1").textContent = "0";
