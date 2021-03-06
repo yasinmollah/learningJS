@@ -10,17 +10,29 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
         var diceDom = document.querySelector(".dice");
         diceDom.style.display = "block";
         diceDom.src = "../images/dice-" + dice + ".png";
-        //3.update the round score if the rolled number is not 1
-        if (dice !== 1) {
-            // Add Score
-            roundScore += dice;
-            // Display the score in the current score box
+
+        // Checking two six in a row [challenge 3 : part 1]
+        dualSix.push(dice);
+        if (dualSix[0] === 6 && dualSix[1] === 6) {
+            roundScore = 0;
+            scores[activePlayer - 1] = 0;
             document.getElementById(
                 "current-" + activePlayer
             ).textContent = roundScore;
-        } else {
-            // Switch to the next player
             nextPlayer();
+        } else {
+            //3.update the round score if the rolled number is not 1
+            if (dice !== 1) {
+                // Add Score
+                roundScore += dice;
+                // Display the score in the current score box
+                document.getElementById(
+                    "current-" + activePlayer
+                ).textContent = roundScore;
+            } else {
+                // Switch to the next player
+                nextPlayer();
+            }
         }
     }
 });
@@ -63,7 +75,7 @@ function init() {
     roundScore = 0;
     activePlayer = 1;
     gamePlay = true;
-    dualSix = [];
+    dualSix = [0, 0];
     document.querySelector(".dice").style.display = "none";
 
     document.getElementById("score-1").textContent = "0";
