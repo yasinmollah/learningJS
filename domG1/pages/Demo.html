@@ -48,6 +48,18 @@
             <button class="btn-hold">
                 <i class="far fa-arrow-alt-circle-down"></i> Hold Point
             </button>
+            <form class="wScore">
+                <input
+                    type="number"
+                    name="winning-score"
+                    value="#"
+                    id="winScore"
+                    required
+                    title="Please Fill the winning Score"
+                />
+                <!-- <input type="button" value="Set" onclick="setValue()" /> -->
+                <button onclick="setValue()" id="btn-set" required>Set</button>
+            </form>
 
             <img src="../images/dice-1.png" alt="dice" class="dice" />
         </div>

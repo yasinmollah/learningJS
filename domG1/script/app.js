@@ -1,4 +1,4 @@
-var scores, roundScore, activePlayer, gamePlay, dualSix;
+var scores, roundScore, activePlayer, gamePlay, dualSix, winningScore;
 
 init();
 
@@ -10,15 +10,13 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
         var diceDom = document.querySelector(".dice");
         diceDom.style.display = "block";
         diceDom.src = "../images/dice-" + dice + ".png";
-
         // Checking two six in a row [challenge 3 : part 1]
         dualSix.push(dice);
         if (dualSix[0] === 6 && dualSix[1] === 6) {
             roundScore = 0;
             scores[activePlayer - 1] = 0;
-            document.getElementById(
-                "current-" + activePlayer
-            ).textContent = roundScore;
+            document.getElementById("current-" + activePlayer).textContent = 0;
+            document.getElementById("score-" + activePlayer).textContent = 0;
             nextPlayer();
         } else {
             //3.update the round score if the rolled number is not 1
@@ -46,7 +44,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
         document.getElementById("score-" + activePlayer).textContent =
             scores[activePlayer - 1];
         //Check If player won the game
-        if (scores[activePlayer - 1] >= 20) {
+        if (scores[activePlayer - 1] >= winningScore) {
             //Change player name to WINNER
             document.getElementById("name-" + activePlayer).textContent =
                 "Winner!!";
@@ -76,6 +74,7 @@ function init() {
     activePlayer = 1;
     gamePlay = true;
     dualSix = [0, 0];
+    winningScore = setValue();
     document.querySelector(".dice").style.display = "none";
 
     document.getElementById("score-1").textContent = "0";
@@ -105,4 +104,8 @@ function nextPlayer() {
     document.querySelector(".player-2-pannel").classList.toggle("active");
     // Disappear the dice when the dice value is 1
     document.querySelector(".dice").style.display = "none";
+}
+
+function setValue() {
+    return document.getElementById("winScore").value;
 }
