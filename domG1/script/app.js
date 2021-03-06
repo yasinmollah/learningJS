@@ -4,32 +4,45 @@ init();
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
     if (gamePlay) {
-        // 1.Select random number
-        var dice = Math.floor(Math.random() * 6) + 1;
-        //2.Display the Result
-        var diceDom = document.querySelector(".dice");
-        diceDom.style.display = "block";
-        diceDom.src = "../images/dice-" + dice + ".png";
-        // Checking two six in a row [challenge 3 : part 1]
-        dualSix.push(dice);
-        if (dualSix[0] === 6 && dualSix[1] === 6) {
-            roundScore = 0;
-            scores[activePlayer - 1] = 0;
-            document.getElementById("current-" + activePlayer).textContent = 0;
-            document.getElementById("score-" + activePlayer).textContent = 0;
-            nextPlayer();
+        if (
+            winningScore === null ||
+            winningScore === NaN ||
+            winningScore <= 0 ||
+            winningScore === undefined
+        ) {
+            alert("Please enter a valid Score");
         } else {
-            //3.update the round score if the rolled number is not 1
-            if (dice !== 1) {
-                // Add Score
-                roundScore += dice;
-                // Display the score in the current score box
+            // 1.Select random number
+            var dice = Math.floor(Math.random() * 6) + 1;
+            //2.Display the Result
+            var diceDom = document.querySelector(".dice");
+            diceDom.style.display = "block";
+            diceDom.src = "../images/dice-" + dice + ".png";
+            // Checking two six in a row [challenge 3 : part 1]
+            dualSix.push(dice);
+            if (dualSix[0] === 6 && dualSix[1] === 6) {
+                roundScore = 0;
+                scores[activePlayer - 1] = 0;
                 document.getElementById(
                     "current-" + activePlayer
-                ).textContent = roundScore;
-            } else {
-                // Switch to the next player
+                ).textContent = 0;
+                document.getElementById(
+                    "score-" + activePlayer
+                ).textContent = 0;
                 nextPlayer();
+            } else {
+                //3.update the round score if the rolled number is not 1
+                if (dice !== 1) {
+                    // Add Score
+                    roundScore += dice;
+                    // Display the score in the current score box
+                    document.getElementById(
+                        "current-" + activePlayer
+                    ).textContent = roundScore;
+                } else {
+                    // Switch to the next player
+                    nextPlayer();
+                }
             }
         }
     }
@@ -74,7 +87,7 @@ function init() {
     activePlayer = 1;
     gamePlay = true;
     dualSix = [0, 0];
-    winningScore = setValue();
+    setValue();
     document.querySelector(".dice").style.display = "none";
 
     document.getElementById("score-1").textContent = "0";
@@ -107,5 +120,5 @@ function nextPlayer() {
 }
 
 function setValue() {
-    return document.getElementById("winScore").value;
+    winningScore = Number(document.getElementById("finalScore").value);
 }

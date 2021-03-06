@@ -113,17 +113,37 @@ button {
     font-weight: 300;
     transition: background-color 0.3s, color 0.3s;
 }
-input {
-    position: fixed;
+/* input { */
+/* position: fixed; */
+/* top: 520px; */
+/* bottom: 50px; */
+/* left: 38%; */
+/* width: 25%; */
+/* padding: 10px 15px; */
+/* display: inline-block; */
+/* border: 1px solid #ccc; */
+/* border-radius: 10px; */
+/* box-sizing: content-box; */
+/* } */
+
+#finalScore {
+    position: absolute;
+    left: 50%;
     top: 520px;
-    bottom: 50px;
-    left: 38%;
+    transform: translateX(-50%);
+    color: #555;
+    padding: 5px;
     width: 25%;
-    padding: 10px 15px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: content-box;
+    background: none;
+    border-radius: 25px;
+    border-color: gray;
+    font-family: Lato;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#finalScore:focus {
+    outline: none;
 }
 button:hover {
     font-weight: 600;
@@ -155,9 +175,6 @@ i {
 }
 .btn-hold {
     top: 467px;
-}
-#btn-set {
-    top: 550px;
 }
 
 .dice {
