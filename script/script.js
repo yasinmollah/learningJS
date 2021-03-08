@@ -15,7 +15,7 @@ var mrX = {
 mrX.calculateAge();
 console.log(mrX);
 */
-
+/*
 var person = function (name, yearOfBirth, profession) {
     this.name = name;
     this.yearOfBirth = yearOfBirth;
@@ -42,3 +42,28 @@ console.log(rahina);
 var eity = new person("Eity", 1996, "Magistrate");
 eity.calculateAge();
 console.log(eity);
+*/
+
+// Creating Objects: Object.create
+
+var personProto = {
+    calculateAge: function () {
+        console.log(Number(new Date().getFullYear()) - this.yearOfBirth);
+    },
+};
+
+var yasin = Object.create(personProto);
+yasin.name = "Yasin";
+yasin.yearOfBirth = 1996;
+yasin.job = "Student";
+yasin.calculateAge();
+console.log(yasin);
+
+var prince = Object.create(personProto, {
+    name: { value: "Prince" },
+    yearOfBirth: { value: 1995 },
+    job: { value: "Police" },
+});
+
+prince.calculateAge();
+console.log(prince);
