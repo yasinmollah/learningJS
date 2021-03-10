@@ -104,3 +104,27 @@ console.log(heartRate);
 */
 
 //First Class Function: Function Returning Function
+function interviewQuestion(job) {
+    if (job === "teacher") {
+        return function (name) {
+            console.log(`What topic do you want to teach, ${name} ?`);
+        };
+    } else if (job === "designer") {
+        return function (name) {
+            console.log(
+                `Mr. ${name}, can you explain, what the UI/UX design is ?`
+            );
+        };
+    } else {
+        return function (name) {
+            console.log(`${name}, in which field, you are suppose to expert?`);
+        };
+    }
+}
+
+var teacherQues = interviewQuestion("teacher");
+teacherQues("Yasin");
+
+interviewQuestion("designer")("Yasin");
+
+interviewQuestion("Ghoear Dim")("fururt");
