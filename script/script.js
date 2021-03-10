@@ -69,3 +69,35 @@ prince.calculateAge();
 console.log(prince);
 */
 
+//First Class Function: passing function as arguments
+
+var years = [1998, 1996, 1997, 2005, 2001];
+
+function calcArray(arr, fnc) {
+    var resArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        resArr.push(fnc(arr[i]));
+    }
+    return resArr;
+}
+
+function calcAge(elem) {
+    return Number(new Date().getFullYear()) - elem;
+}
+
+function isFullAge(elem) {
+    return elem >= 18;
+}
+
+function mxHeartRate(elem) {
+    return Math.round(206.9 - 0.69 * elem);
+}
+
+var ages = calcArray(years, calcAge);
+console.log(ages);
+
+var fullAge = calcArray(ages, isFullAge);
+console.log(fullAge);
+
+var heartRate = calcArray(ages, mxHeartRate);
+console.log(heartRate);
