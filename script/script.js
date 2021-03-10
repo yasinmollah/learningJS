@@ -68,7 +68,7 @@ var prince = Object.create(personProto, {
 prince.calculateAge();
 console.log(prince);
 */
-
+/*
 //First Class Function: passing function as arguments
 
 var years = [1998, 1996, 1997, 2005, 2001];
@@ -101,3 +101,6 @@ console.log(fullAge);
 
 var heartRate = calcArray(ages, mxHeartRate);
 console.log(heartRate);
+*/
+
+//First Class Function: Function Returning Function
