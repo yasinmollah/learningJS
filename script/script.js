@@ -43,7 +43,7 @@ var eity = new person("Eity", 1996, "Magistrate");
 eity.calculateAge();
 console.log(eity);
 */
-
+/*
 // Creating Objects: Object.create
 
 var personProto = {
@@ -67,3 +67,5 @@ var prince = Object.create(personProto, {
 
 prince.calculateAge();
 console.log(prince);
+*/
+
