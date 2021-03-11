@@ -145,7 +145,7 @@ game();
     console.log(score >= 5);
 })();
 */
-
+/*
 //Closures
 
 //Practice Closures
@@ -192,3 +192,5 @@ var annonymousQues = interviewQuestion("jana nei");
 teacherQues("Yasin");
 designerQues("Yasin");
 annonymousQues("Yasin");
+*/
+
