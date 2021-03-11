@@ -102,7 +102,7 @@ console.log(fullAge);
 var heartRate = calcArray(ages, mxHeartRate);
 console.log(heartRate);
 */
-
+/*
 //First Class Function: Function Returning Function
 function interviewQuestion(job) {
     if (job === "teacher") {
@@ -128,3 +128,5 @@ teacherQues("Yasin");
 interviewQuestion("designer")("Yasin");
 
 interviewQuestion("Ghoear Dim")("fururt");
+*/
+
