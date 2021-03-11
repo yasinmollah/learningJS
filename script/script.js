@@ -129,7 +129,7 @@ interviewQuestion("designer")("Yasin");
 
 interviewQuestion("Ghoear Dim")("fururt");
 */
-
+/*
 //Immediately Invoked Function Expression --> IIFE
 
 //Traditional Function
@@ -144,3 +144,5 @@ game();
     var score = Math.round(Math.random() * 10);
     console.log(score >= 5);
 })();
+*/
+
