@@ -146,3 +146,49 @@ game();
 })();
 */
 
+//Closures
+
+//Practice Closures
+function retirement(retAge) {
+    var msg = " years left until retirement...";
+    return function (yearOfBirth) {
+        console.log(
+            retAge - (Number(new Date().getFullYear()) - yearOfBirth) + msg
+        );
+    };
+}
+
+//retirement(65)(1996);
+
+var retirementUSA = retirement(66);
+var retirementGermany = retirement(67);
+
+retirementUSA(1996);
+retirementGermany(1996);
+
+//Test Closures
+function interviewQuestion(job) {
+    if (job === "teacher") {
+        return function (name) {
+            console.log(`What topic do you want to teach, ${name} ?`);
+        };
+    } else if (job === "designer") {
+        return function (name) {
+            console.log(
+                `Mr. ${name}, can you explain, what the UI/UX design is ?`
+            );
+        };
+    } else {
+        return function (name) {
+            console.log(`${name}, in which field, you are suppose to expert?`);
+        };
+    }
+}
+
+var teacherQues = interviewQuestion("teacher");
+var designerQues = interviewQuestion("designer");
+var annonymousQues = interviewQuestion("jana nei");
+
+teacherQues("Yasin");
+designerQues("Yasin");
+annonymousQues("Yasin");
