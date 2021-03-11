@@ -194,3 +194,41 @@ designerQues("Yasin");
 annonymousQues("Yasin");
 */
 
+//Bind, Call and Apply
+
+//Practicing Bind, Call and Apply
+
+var john = {
+    name: "John",
+    age: 29,
+    job: "Teacher",
+    presentation: function (mood, partOfDay) {
+        if (mood === "friendly") {
+            console.log(
+                `Hey Good ${partOfDay} Everyone! I'm ${this.name}, I'm a ${this.job} and I'm ${this.age} years old`
+            );
+        } else if (mood === "formal") {
+            console.log(`Hello Good ${partOfDay} Everyone! I'm ${this.name}, I'm a 
+            ${this.job} and I'm ${this.age} years old`);
+        }
+    },
+};
+
+john.presentation("formal", "morning");
+
+var emily = {
+    name: "Emily",
+    age: 30,
+    job: "Designer",
+};
+
+//Call Method
+john.presentation.call(emily, "friendly", "Evening");
+
+//Apply Method
+john.presentation.apply(emily, ["formal", "Afternoon"]);
+
+//Bind Method
+var check = john.presentation.bind(emily, "friendly");
+
+check("noon");
