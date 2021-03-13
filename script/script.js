@@ -193,7 +193,7 @@ teacherQues("Yasin");
 designerQues("Yasin");
 annonymousQues("Yasin");
 */
-
+/*
 //Bind, Call and Apply
 
 //Practicing Bind, Call and Apply
@@ -232,3 +232,6 @@ john.presentation.apply(emily, ["formal", "Afternoon"]);
 var check = john.presentation.bind(emily, "friendly");
 
 check("noon");
+*/
+
+//Coding Challenge 4
