@@ -235,3 +235,57 @@ check("noon");
 */
 
 //Coding Challenge 4
+
+(function () {
+    var qq = [],
+        psA;
+
+    var Question = function (ask, opt, ans) {
+        this.ques = ask;
+        this.option = opt;
+        this.answer = ans;
+    };
+
+    var ques1 = new Question(
+        "Who is the current president of USA?",
+        ["Barrak Obama", "Donald Trump", "Joe Biden"],
+        "2"
+    );
+
+    var ques2 = new Question(
+        "who is the current Prime Minister of Bangladesh?",
+        ["Sheikh Hasina", "Khaleda Zia", "Rowshan Ara Ershad"],
+        "0"
+    );
+
+    var ques3 = new Question(
+        "Who is the current Prime Minister of india?",
+        ["Rahul Gandhi", "Narendra Modi", "Mon Mohon Singh"],
+        "1"
+    );
+
+    var ques4 = new Question(
+        "Who is the current Education Minister of Bangladesh?",
+        ["MoKha Alamgir", "Nurul Islam Nahid", "Dr. Dipu Moni"],
+        "2"
+    );
+
+    qq.push(ques1, ques2, ques3, ques4);
+    // console.log(qq);
+    lgQuestion(qq);
+
+    function lgQuestion(arr) {
+        let quesSelector = Math.floor(Math.random() * 4) + 1;
+        console.log("Q " + quesSelector + " -->" + arr[quesSelector - 1].ques);
+        for (var i = 0; i < arr[quesSelector - 1].option.length; i++) {
+            console.log(i + " : " + arr[quesSelector - 1].option[i]);
+        }
+        psA = prompt("Enter the Correct Answer for the given Question?");
+
+        if (arr[quesSelector - 1].answer === psA) {
+            console.log("\n\nCorrect Answer");
+        } else {
+            console.log("\n\nWrong Answer");
+        }
+    }
+})();
