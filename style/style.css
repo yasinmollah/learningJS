@@ -1,0 +1,13 @@
+h1,h3,h5{
+    text-align: right;
+    color:aquamarine;
+    font-weight: 700;
+    background: darkblue;
+    margin: 5px 100px 5px 10px ;
+}
+h2,h4,h6{
+    text-align: left;
+    color:lightpink;
+    font-weight: 700;
+    background: deeppink;
+}
