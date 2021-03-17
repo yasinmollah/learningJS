@@ -276,7 +276,7 @@ check("noon");
 
     function lgQuestion(arr) {
         let quesSelector = Math.floor(Math.random() * 4) + 1;
-        console.log("Q " + quesSelector + " -->" + arr[quesSelector - 1].ques);
+        console.log("Q." + quesSelector + " -->" + arr[quesSelector - 1].ques);
         for (var i = 0; i < arr[quesSelector - 1].option.length; i++) {
             console.log(i + " : " + arr[quesSelector - 1].option[i]);
         }
