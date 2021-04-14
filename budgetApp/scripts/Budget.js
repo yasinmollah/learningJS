@@ -83,4 +83,3 @@ var globalControllerModule = (function (dataCtrl, UICtrl) {
 
 // Starting the Application
 globalControllerModule.start();
-
